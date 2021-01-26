@@ -15,6 +15,8 @@ io.on('connection', (socket) => {
 	socket.on('disconnect', () => console.log('a user disconnectid'));
 });
 
-http.listen(3000, () => {
+let port = process.env.PORT || 3000;
+
+http.listen(port, () => {
 	console.log('listening on *:3000');
 });
