@@ -1,6 +1,6 @@
 import { useState, useContext, useEffect } from 'react';
 import ColorContext from '../contexts/ColorContext';
-import { sendColor, getColor } from '../socketService';
+import { sendColor } from '../socketService';
 
 function ChangeColor() {
 	const [color, setColor] = useState('#ddd');
@@ -8,10 +8,10 @@ function ChangeColor() {
 
 	const handleSubmit = (e) => {
 		setColor(e.target.value);
+		setSelectColor(color);
 	};
 
 	useEffect(() => {
-		setSelectColor(color);
 		sendColor(color);
 	}, [color]);
 
